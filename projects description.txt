@@ -1,6 +1,18 @@
 ASCENDALYPSE — Project description
 
-Playable now: Floor 0
+Genre: 2D precision platformer, inspired by Jump King
+Jam theme: BOUNCE BACK
+
+Two hundred years after humanity vanished, lightning strikes the antenna on Floor 10. The surge follows the wiring down to a generator on Floor 0. Beside it, a moss-covered service robot wakes up, still tethered to the machine. His creator is slumped at the workbench. When the bones begin to move, the Unit has to reckon with the one instruction his creator left him: “Never harm a human.”
+
+The jam theme is BOUNCE BACK. The Unit comes back to life after two centuries without power. His spring jump turns that idea into something you can feel: hold a charge on a narrow landing, aim, then let go. Miss the landing over water and you can return for the part you lost. The harder recovery is the Unit’s own: how can a machine built to protect people fight the remains of the person who built him?
+
+Characters
+- The Unit was built for domestic and maintenance work. Rust and moss cover his casing. His dialogue is designed around small bubbles: an icon, a code fragment, a few words.
+- The Creator, called the Maker in the demo, is the engineer whose skeleton rests on Floor 0. Parasitic moss animates his remains. The encounter puts the Unit’s directive in conflict with his survival.
+- The Overgrown are the planned enemies of the upper tower. Fungi and roots bind bones to discarded machinery; some creatures will guard parts of the lift.
+
+Playable now: The Spark (prologue) and The Directive & The Mutation (Floor 0)
 Two centuries after humanity vanished, lightning reboots a maintenance robot inside an overgrown robotics facility. Escape begins at the generator and ends at the lift.
 
 Play opens the factory cinematic. Tap Space eight times, or hold both controller triggers, to free the tether. After the explosion, the ASCENDALYPSE title card appears above the space-to-play prompt; a fresh Space press starts play. The robot walks and steers with the arrows; hold and release Space to spring-jump. R cancels a charge and E returns to the active checkpoint.
@@ -10,7 +22,12 @@ F inspects the Maker. Space dismisses the dialogue. X attacks with a short cresc
 Defeating the Maker opens the Floodway gate. The route has 32 jumps above water. Falling costs a part; the robot respawns at its checkpoint while the part stays on the last safe landing. Touching the cyan beacon on landing 18 updates the checkpoint. F powers the lift and displays “move to the next level”. Floor 0 ends there.
 
 Planned, not playable yet
-Additional levels above the lift, and a transition from Floor 0 into the next level. Their layouts and encounters are not yet specified. Keep new milestones here as they become playable.
+Act II · The Ascent (Floors 1–9). The plan is to climb the broken lift shaft floor by floor, recovering lift components guarded by the Overgrown. These are separate from the Unit’s own recoverable parts on Floor 0. Higher platforms give way to exposed steel and rain; a missed jump can cost part of the climb.
+
+Act III · The Guardian & the Sky (Floors 9–10). An apex Overgrown guards the last lift mechanism on Floor 9. Beyond it lies the open terrace. The planned ending has no further fight: the storm clears, and the Unit steps outside under his own power.
+
+Art, audio and haptic direction
+Floor 0 uses wet concrete, rust and deep moss greens so the Unit’s eyes, lightning and checkpoint light stand out. For the ascent, the proposed art plan groups the tower into three zones: flooded basement and lobby (0–3), overgrown offices (4–7), and storm-battered penthouse and terrace (8–10). More daylight would reach each successive zone. Sound and haptic targets include a rising generator hum, trigger rumble and a cut to silence at detonation, with small mechanical whirs and synth chirps in place of voiced dialogue. These are production targets, not promised features of this build.
 
 Project layout
 opening/ contains the menu, cinematic, Maker encounter, Floodway, lift, and checkpoints. movement/ contains the shared robot controller, sprites, and damage stages. hud/ contains the integrity display. The Web export preset builds the browser version.
