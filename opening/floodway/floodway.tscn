@@ -1,0 +1,562 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://opening/floodway/checkpoint.png" id="led"]
+
+[ext_resource type="Script" path="res://opening/floodway/floodway.gd" id="code"]
+[ext_resource type="Texture2D" path="res://opening/floodway/shell.png" id="shell"]
+[ext_resource type="Texture2D" path="res://opening/floodway/machinery.png" id="machinery"]
+[ext_resource type="Texture2D" path="res://opening/floodway/water.png" id="water"]
+[ext_resource type="Texture2D" path="res://opening/floodway/landings.png" id="landings"]
+[ext_resource type="Texture2D" path="res://opening/floodway/threshold.png" id="threshold"]
+[ext_resource type="Texture2D" path="res://opening/floodway/lift_off.png" id="lift_off"]
+[ext_resource type="Texture2D" path="res://opening/floodway_wiring.png" id="wiring"]
+
+[sub_resource type="RectangleShape2D" id="P01"]
+size = Vector2(74, 6)
+
+[sub_resource type="RectangleShape2D" id="P02"]
+size = Vector2(42, 6)
+
+[sub_resource type="RectangleShape2D" id="P03"]
+size = Vector2(56, 6)
+
+[sub_resource type="RectangleShape2D" id="P04"]
+size = Vector2(35, 6)
+
+[sub_resource type="RectangleShape2D" id="P05"]
+size = Vector2(104, 6)
+
+[sub_resource type="RectangleShape2D" id="P06"]
+size = Vector2(33, 6)
+
+[sub_resource type="RectangleShape2D" id="P07"]
+size = Vector2(28, 6)
+
+[sub_resource type="RectangleShape2D" id="P08"]
+size = Vector2(33, 6)
+
+[sub_resource type="RectangleShape2D" id="P09"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="P10"]
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="P11"]
+size = Vector2(104, 6)
+
+[sub_resource type="RectangleShape2D" id="P12"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="P13"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="P14"]
+size = Vector2(25, 6)
+
+[sub_resource type="RectangleShape2D" id="P15"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="P16"]
+size = Vector2(23, 6)
+
+[sub_resource type="RectangleShape2D" id="P17"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="P18"]
+size = Vector2(98, 6)
+
+[sub_resource type="RectangleShape2D" id="P19"]
+size = Vector2(31, 6)
+
+[sub_resource type="RectangleShape2D" id="P20"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="P21"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="P22"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="P23"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="P24"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="P25"]
+size = Vector2(72, 6)
+
+[sub_resource type="RectangleShape2D" id="P26"]
+size = Vector2(22, 6)
+
+[sub_resource type="RectangleShape2D" id="P27"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="P28"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="P29"]
+size = Vector2(18, 6)
+
+[sub_resource type="RectangleShape2D" id="P30"]
+size = Vector2(21, 6)
+
+[sub_resource type="RectangleShape2D" id="P31"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="P32"]
+size = Vector2(201, 6)
+
+[sub_resource type="RectangleShape2D" id="BeaconZone"]
+size = Vector2(10, 6)
+
+[node name="Floodway" type="Node2D"]
+script = ExtResource("code")
+process_physics_priority = 1
+z_index = -1
+
+[node name="Shell" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("shell")
+
+[node name="Machinery" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("machinery")
+
+[node name="Water" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("water")
+
+[node name="Threshold" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("threshold")
+
+[node name="Lift_off" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("lift_off")
+
+[node name="Wiring" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("wiring")
+
+[node name="P01" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(383.0, 212)
+[node name="Shape" type="CollisionShape2D" parent="P01"]
+position = Vector2(0, 3)
+shape = SubResource("P01")
+[node name="Art" type="Sprite2D" parent="P01"]
+position = Vector2(-37.0, -212)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(346, 0, 74, 288)
+
+[node name="P02" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(485.0, 192)
+[node name="Shape" type="CollisionShape2D" parent="P02"]
+position = Vector2(0, 3)
+shape = SubResource("P02")
+[node name="Art" type="Sprite2D" parent="P02"]
+position = Vector2(-21.0, -192)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(464, 0, 42, 288)
+
+[node name="P03" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(586.0, 204)
+[node name="Shape" type="CollisionShape2D" parent="P03"]
+position = Vector2(0, 3)
+shape = SubResource("P03")
+[node name="Art" type="Sprite2D" parent="P03"]
+position = Vector2(-28.0, -204)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(558, 0, 56, 288)
+
+[node name="P04" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(681.5, 181)
+[node name="Shape" type="CollisionShape2D" parent="P04"]
+position = Vector2(0, 3)
+shape = SubResource("P04")
+[node name="Art" type="Sprite2D" parent="P04"]
+position = Vector2(-17.5, -181)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(664, 0, 35, 288)
+
+[node name="P05" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(813.0, 200)
+[node name="Shape" type="CollisionShape2D" parent="P05"]
+position = Vector2(0, 3)
+shape = SubResource("P05")
+[node name="Art" type="Sprite2D" parent="P05"]
+position = Vector2(-52.0, -200)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(761, 0, 104, 288)
+
+[node name="P06" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(927.5, 170)
+[node name="Shape" type="CollisionShape2D" parent="P06"]
+position = Vector2(0, 3)
+shape = SubResource("P06")
+[node name="Art" type="Sprite2D" parent="P06"]
+position = Vector2(-16.5, -170)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(911, 0, 33, 288)
+
+[node name="P07" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1001.0, 145)
+[node name="Shape" type="CollisionShape2D" parent="P07"]
+position = Vector2(0, 3)
+shape = SubResource("P07")
+[node name="Art" type="Sprite2D" parent="P07"]
+position = Vector2(-14.0, -145)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(987, 0, 28, 288)
+
+[node name="P08" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1090.5, 159)
+[node name="Shape" type="CollisionShape2D" parent="P08"]
+position = Vector2(0, 3)
+shape = SubResource("P08")
+[node name="Art" type="Sprite2D" parent="P08"]
+position = Vector2(-16.5, -159)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1074, 0, 33, 288)
+
+[node name="P09" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1181.0, 178)
+[node name="Shape" type="CollisionShape2D" parent="P09"]
+position = Vector2(0, 3)
+shape = SubResource("P09")
+[node name="Art" type="Sprite2D" parent="P09"]
+position = Vector2(-12.0, -178)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1169, 0, 24, 288)
+
+[node name="P10" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1264.0, 165)
+[node name="Shape" type="CollisionShape2D" parent="P10"]
+position = Vector2(0, 3)
+shape = SubResource("P10")
+[node name="Art" type="Sprite2D" parent="P10"]
+position = Vector2(-16.0, -165)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1248, 0, 32, 288)
+
+[node name="P11" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1396.0, 189)
+[node name="Shape" type="CollisionShape2D" parent="P11"]
+position = Vector2(0, 3)
+shape = SubResource("P11")
+[node name="Art" type="Sprite2D" parent="P11"]
+position = Vector2(-52.0, -189)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1344, 0, 104, 288)
+
+[node name="P12" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1503.0, 155)
+[node name="Shape" type="CollisionShape2D" parent="P12"]
+position = Vector2(0, 3)
+shape = SubResource("P12")
+[node name="Art" type="Sprite2D" parent="P12"]
+position = Vector2(-13.0, -155)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1490, 0, 26, 288)
+
+[node name="P13" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1567.0, 121)
+[node name="Shape" type="CollisionShape2D" parent="P13"]
+position = Vector2(0, 3)
+shape = SubResource("P13")
+[node name="Art" type="Sprite2D" parent="P13"]
+position = Vector2(-11.0, -121)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1556, 0, 22, 288)
+
+[node name="P14" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1648.5, 123)
+[node name="Shape" type="CollisionShape2D" parent="P14"]
+position = Vector2(0, 3)
+shape = SubResource("P14")
+[node name="Art" type="Sprite2D" parent="P14"]
+position = Vector2(-12.5, -123)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1636, 0, 25, 288)
+
+[node name="P15" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1733.0, 152)
+[node name="Shape" type="CollisionShape2D" parent="P15"]
+position = Vector2(0, 3)
+shape = SubResource("P15")
+[node name="Art" type="Sprite2D" parent="P15"]
+position = Vector2(-10.0, -152)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1723, 0, 20, 288)
+
+[node name="P16" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1820.5, 176)
+[node name="Shape" type="CollisionShape2D" parent="P16"]
+position = Vector2(0, 3)
+shape = SubResource("P16")
+[node name="Art" type="Sprite2D" parent="P16"]
+position = Vector2(-11.5, -176)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1809, 0, 23, 288)
+
+[node name="P17" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(1888.0, 148)
+[node name="Shape" type="CollisionShape2D" parent="P17"]
+position = Vector2(0, 3)
+shape = SubResource("P17")
+[node name="Art" type="Sprite2D" parent="P17"]
+position = Vector2(-12.0, -148)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1876, 0, 24, 288)
+
+[node name="P18" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2009.0, 175)
+[node name="Shape" type="CollisionShape2D" parent="P18"]
+position = Vector2(0, 3)
+shape = SubResource("P18")
+[node name="Art" type="Sprite2D" parent="P18"]
+position = Vector2(-49.0, -175)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(1960, 0, 98, 288)
+
+[node name="P19" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2133.5, 163)
+[node name="Shape" type="CollisionShape2D" parent="P19"]
+position = Vector2(0, 3)
+shape = SubResource("P19")
+[node name="Art" type="Sprite2D" parent="P19"]
+position = Vector2(-15.5, -163)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2118, 0, 31, 288)
+
+[node name="P20" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2230.0, 174)
+[node name="Shape" type="CollisionShape2D" parent="P20"]
+position = Vector2(0, 3)
+shape = SubResource("P20")
+[node name="Art" type="Sprite2D" parent="P20"]
+position = Vector2(-10.0, -174)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2220, 0, 20, 288)
+
+[node name="P21" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2308.5, 155)
+[node name="Shape" type="CollisionShape2D" parent="P21"]
+position = Vector2(0, 3)
+shape = SubResource("P21")
+[node name="Art" type="Sprite2D" parent="P21"]
+position = Vector2(-10.5, -155)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2298, 0, 21, 288)
+
+[node name="P22" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2397.0, 164)
+[node name="Shape" type="CollisionShape2D" parent="P22"]
+position = Vector2(0, 3)
+shape = SubResource("P22")
+[node name="Art" type="Sprite2D" parent="P22"]
+position = Vector2(-9.0, -164)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2388, 0, 18, 288)
+
+[node name="P23" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2476.0, 146)
+[node name="Shape" type="CollisionShape2D" parent="P23"]
+position = Vector2(0, 3)
+shape = SubResource("P23")
+[node name="Art" type="Sprite2D" parent="P23"]
+position = Vector2(-11.0, -146)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2465, 0, 22, 288)
+
+[node name="P24" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2570.5, 170)
+[node name="Shape" type="CollisionShape2D" parent="P24"]
+position = Vector2(0, 3)
+shape = SubResource("P24")
+[node name="Art" type="Sprite2D" parent="P24"]
+position = Vector2(-10.5, -170)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2560, 0, 21, 288)
+
+[node name="P25" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2668.0, 148)
+[node name="Shape" type="CollisionShape2D" parent="P25"]
+position = Vector2(0, 3)
+shape = SubResource("P25")
+[node name="Art" type="Sprite2D" parent="P25"]
+position = Vector2(-36.0, -148)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2632, 0, 72, 288)
+
+[node name="P26" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2761.0, 118)
+[node name="Shape" type="CollisionShape2D" parent="P26"]
+position = Vector2(0, 3)
+shape = SubResource("P26")
+[node name="Art" type="Sprite2D" parent="P26"]
+position = Vector2(-11.0, -118)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2750, 0, 22, 288)
+
+[node name="P27" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2819.0, 93)
+[node name="Shape" type="CollisionShape2D" parent="P27"]
+position = Vector2(0, 3)
+shape = SubResource("P27")
+[node name="Art" type="Sprite2D" parent="P27"]
+position = Vector2(-10.0, -93)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2809, 0, 20, 288)
+
+[node name="P28" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2887.0, 116)
+[node name="Shape" type="CollisionShape2D" parent="P28"]
+position = Vector2(0, 3)
+shape = SubResource("P28")
+[node name="Art" type="Sprite2D" parent="P28"]
+position = Vector2(-10.0, -116)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2877, 0, 20, 288)
+
+[node name="P29" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(2964.0, 128)
+[node name="Shape" type="CollisionShape2D" parent="P29"]
+position = Vector2(0, 3)
+shape = SubResource("P29")
+[node name="Art" type="Sprite2D" parent="P29"]
+position = Vector2(-9.0, -128)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(2955, 0, 18, 288)
+
+[node name="P30" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(3037.5, 106)
+[node name="Shape" type="CollisionShape2D" parent="P30"]
+position = Vector2(0, 3)
+shape = SubResource("P30")
+[node name="Art" type="Sprite2D" parent="P30"]
+position = Vector2(-10.5, -106)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(3027, 0, 21, 288)
+
+[node name="P31" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(3132.0, 132)
+[node name="Shape" type="CollisionShape2D" parent="P31"]
+position = Vector2(0, 3)
+shape = SubResource("P31")
+[node name="Art" type="Sprite2D" parent="P31"]
+position = Vector2(-12.0, -132)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(3120, 0, 24, 288)
+
+[node name="P32" type="StaticBody2D" parent="." groups=["flood_landing"]]
+position = Vector2(3305.5, 120)
+[node name="Shape" type="CollisionShape2D" parent="P32"]
+position = Vector2(0, 3)
+shape = SubResource("P32")
+[node name="Art" type="Sprite2D" parent="P32"]
+position = Vector2(-100.5, -120)
+centered = false
+texture = ExtResource("landings")
+region_enabled = true
+region_rect = Rect2(3205, 0, 201, 288)
+
+[node name="CallHint" type="Label" parent="."]
+visible = false
+position = Vector2(3259, 83)
+scale = Vector2(0.5,0.5)
+text = "F"
+[node name="LiveLamp" type="ColorRect" parent="."]
+visible = false
+offset_left = 3261
+offset_top = 97
+offset_right = 3266
+offset_bottom = 103
+mouse_filter = 2
+color = Color(0.416,0.82,0.765,1)
+[node name="Display" type="Label" parent="."]
+visible = false
+position = Vector2(3246, 36)
+size = Vector2(207,20)
+scale = Vector2(0.7,0.7)
+horizontal_alignment = 1
+modulate = Color(0.55,0.88,0.81,1)
+text = "move to the next level"
+
+[node name="Checkpoint" type="Area2D" parent="P18"]
+position = Vector2(0, -3)
+collision_layer = 0
+collision_mask = 1
+
+[node name="Trigger" type="CollisionShape2D" parent="P18/Checkpoint"]
+shape = SubResource("BeaconZone")
+
+[node name="LED" type="Sprite2D" parent="P18/Checkpoint"]
+texture_filter = 1
+texture = ExtResource("led")
+hframes = 2
+z_index = 2
+
+[connection signal="body_entered" from="P18/Checkpoint" to="." method="_touch_checkpoint"]

@@ -1,0 +1,9 @@
+.godot/
+/android/
+build/
+dist/
+.export/
+*.pck
+*.zip
+.env
+export_credentials.cfg

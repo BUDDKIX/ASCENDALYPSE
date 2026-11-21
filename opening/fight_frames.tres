@@ -1,0 +1,192 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://opening/fight_art/maker_wake.png" id="maker_wake"]
+
+[ext_resource type="Texture2D" path="res://opening/fight_art/maker_crawl.png" id="maker_crawl"]
+
+[ext_resource type="Texture2D" path="res://opening/fight_art/maker_windup.png" id="maker_windup"]
+
+[ext_resource type="Texture2D" path="res://opening/fight_art/maker_lunge.png" id="maker_lunge"]
+
+[ext_resource type="Texture2D" path="res://opening/fight_art/maker_collapse.png" id="maker_collapse"]
+
+[ext_resource type="Texture2D" path="res://opening/fight_art/gate_open.png" id="gate_open"]
+
+[ext_resource type="Texture2D" path="res://opening/fight_art/slash.png" id="slash"]
+
+[sub_resource type="AtlasTexture" id="maker_wake0"]
+atlas = ExtResource("maker_wake")
+region = Rect2(0,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake1"]
+atlas = ExtResource("maker_wake")
+region = Rect2(64,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake2"]
+atlas = ExtResource("maker_wake")
+region = Rect2(128,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake3"]
+atlas = ExtResource("maker_wake")
+region = Rect2(192,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake4"]
+atlas = ExtResource("maker_wake")
+region = Rect2(256,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake5"]
+atlas = ExtResource("maker_wake")
+region = Rect2(320,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake6"]
+atlas = ExtResource("maker_wake")
+region = Rect2(384,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake7"]
+atlas = ExtResource("maker_wake")
+region = Rect2(448,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_wake8"]
+atlas = ExtResource("maker_wake")
+region = Rect2(512,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_crawl0"]
+atlas = ExtResource("maker_crawl")
+region = Rect2(0,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_crawl1"]
+atlas = ExtResource("maker_crawl")
+region = Rect2(64,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_crawl2"]
+atlas = ExtResource("maker_crawl")
+region = Rect2(128,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_crawl3"]
+atlas = ExtResource("maker_crawl")
+region = Rect2(192,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_crawl4"]
+atlas = ExtResource("maker_crawl")
+region = Rect2(256,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_crawl5"]
+atlas = ExtResource("maker_crawl")
+region = Rect2(320,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_windup0"]
+atlas = ExtResource("maker_windup")
+region = Rect2(0,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_windup1"]
+atlas = ExtResource("maker_windup")
+region = Rect2(64,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_windup2"]
+atlas = ExtResource("maker_windup")
+region = Rect2(128,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_lunge0"]
+atlas = ExtResource("maker_lunge")
+region = Rect2(0,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_lunge1"]
+atlas = ExtResource("maker_lunge")
+region = Rect2(64,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_lunge2"]
+atlas = ExtResource("maker_lunge")
+region = Rect2(128,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_lunge3"]
+atlas = ExtResource("maker_lunge")
+region = Rect2(192,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_lunge4"]
+atlas = ExtResource("maker_lunge")
+region = Rect2(256,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_collapse0"]
+atlas = ExtResource("maker_collapse")
+region = Rect2(0,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_collapse1"]
+atlas = ExtResource("maker_collapse")
+region = Rect2(64,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_collapse2"]
+atlas = ExtResource("maker_collapse")
+region = Rect2(128,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_collapse3"]
+atlas = ExtResource("maker_collapse")
+region = Rect2(192,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_collapse4"]
+atlas = ExtResource("maker_collapse")
+region = Rect2(256,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_collapse5"]
+atlas = ExtResource("maker_collapse")
+region = Rect2(320,0,64,64)
+
+[sub_resource type="AtlasTexture" id="maker_collapse6"]
+atlas = ExtResource("maker_collapse")
+region = Rect2(384,0,64,64)
+
+[sub_resource type="AtlasTexture" id="gate_open0"]
+atlas = ExtResource("gate_open")
+region = Rect2(0,0,48,96)
+
+[sub_resource type="AtlasTexture" id="gate_open1"]
+atlas = ExtResource("gate_open")
+region = Rect2(48,0,48,96)
+
+[sub_resource type="AtlasTexture" id="gate_open2"]
+atlas = ExtResource("gate_open")
+region = Rect2(96,0,48,96)
+
+[sub_resource type="AtlasTexture" id="gate_open3"]
+atlas = ExtResource("gate_open")
+region = Rect2(144,0,48,96)
+
+[sub_resource type="AtlasTexture" id="gate_open4"]
+atlas = ExtResource("gate_open")
+region = Rect2(192,0,48,96)
+
+[sub_resource type="AtlasTexture" id="gate_open5"]
+atlas = ExtResource("gate_open")
+region = Rect2(240,0,48,96)
+
+[sub_resource type="AtlasTexture" id="gate_open6"]
+atlas = ExtResource("gate_open")
+region = Rect2(288,0,48,96)
+
+[sub_resource type="AtlasTexture" id="gate_open7"]
+atlas = ExtResource("gate_open")
+region = Rect2(336,0,48,96)
+
+[sub_resource type="AtlasTexture" id="slash0"]
+atlas = ExtResource("slash")
+region = Rect2(0,0,32,32)
+
+[sub_resource type="AtlasTexture" id="slash1"]
+atlas = ExtResource("slash")
+region = Rect2(32,0,32,32)
+
+[sub_resource type="AtlasTexture" id="slash2"]
+atlas = ExtResource("slash")
+region = Rect2(64,0,32,32)
+
+[sub_resource type="AtlasTexture" id="slash3"]
+atlas = ExtResource("slash")
+region = Rect2(96,0,32,32)
+
+[resource]
+animations = [{"name":&"maker_wake","loop":false,"speed":10.0,"frames":[{"duration":3.5,"texture":SubResource("maker_wake0")},{"duration":2.4,"texture":SubResource("maker_wake1")},{"duration":2.4,"texture":SubResource("maker_wake2")},{"duration":2.0,"texture":SubResource("maker_wake3")},{"duration":2.4,"texture":SubResource("maker_wake4")},{"duration":1.4,"texture":SubResource("maker_wake5")},{"duration":1.2,"texture":SubResource("maker_wake6")},{"duration":1.6,"texture":SubResource("maker_wake7")},{"duration":2.4,"texture":SubResource("maker_wake8")}]},
+{"name":&"maker_crawl","loop":true,"speed":10.0,"frames":[{"duration":1.6,"texture":SubResource("maker_crawl0")},{"duration":1.6,"texture":SubResource("maker_crawl1")},{"duration":1.6,"texture":SubResource("maker_crawl2")},{"duration":1.6,"texture":SubResource("maker_crawl3")},{"duration":1.6,"texture":SubResource("maker_crawl4")},{"duration":1.6,"texture":SubResource("maker_crawl5")}]},
+{"name":&"maker_windup","loop":false,"speed":10.0,"frames":[{"duration":2.3,"texture":SubResource("maker_windup0")},{"duration":2.8,"texture":SubResource("maker_windup1")},{"duration":1.8,"texture":SubResource("maker_windup2")}]},
+{"name":&"maker_lunge","loop":false,"speed":10.0,"frames":[{"duration":0.7,"texture":SubResource("maker_lunge0")},{"duration":0.7,"texture":SubResource("maker_lunge1")},{"duration":1.1,"texture":SubResource("maker_lunge2")},{"duration":1.8,"texture":SubResource("maker_lunge3")},{"duration":3.0,"texture":SubResource("maker_lunge4")}]},
+{"name":&"maker_collapse","loop":false,"speed":10.0,"frames":[{"duration":0.9,"texture":SubResource("maker_collapse0")},{"duration":0.8,"texture":SubResource("maker_collapse1")},{"duration":1.4,"texture":SubResource("maker_collapse2")},{"duration":1.6,"texture":SubResource("maker_collapse3")},{"duration":1.8,"texture":SubResource("maker_collapse4")},{"duration":2.2,"texture":SubResource("maker_collapse5")},{"duration":4.5,"texture":SubResource("maker_collapse6")}]},
+{"name":&"gate_open","loop":false,"speed":10.0,"frames":[{"duration":1.7,"texture":SubResource("gate_open0")},{"duration":1.4,"texture":SubResource("gate_open1")},{"duration":1.4,"texture":SubResource("gate_open2")},{"duration":1.4,"texture":SubResource("gate_open3")},{"duration":1.4,"texture":SubResource("gate_open4")},{"duration":1.8,"texture":SubResource("gate_open5")},{"duration":3.2,"texture":SubResource("gate_open6")},{"duration":14.0,"texture":SubResource("gate_open7")}]},
+{"name":&"slash","loop":false,"speed":10.0,"frames":[{"duration":0.25,"texture":SubResource("slash0")},{"duration":0.35,"texture":SubResource("slash1")},{"duration":0.4,"texture":SubResource("slash2")},{"duration":0.3,"texture":SubResource("slash3")}]}]

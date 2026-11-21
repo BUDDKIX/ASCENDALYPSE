@@ -1,0 +1,20 @@
+ASCENDALYPSE — Project description
+
+Playable now: Floor 0
+Two centuries after humanity vanished, lightning reboots a maintenance robot inside an overgrown robotics facility. Escape begins at the generator and ends at the lift.
+
+Play opens the factory cinematic. Tap Space eight times, or hold both controller triggers, to free the tether. After the explosion, the ASCENDALYPSE title card appears above the space-to-play prompt; a fresh Space press starts play. The robot walks and steers with the arrows; hold and release Space to spring-jump. R cancels a charge and E returns to the active checkpoint.
+
+F inspects the Maker. Space dismisses the dialogue. X attacks with a short crescent and a half-second recovery. The Maker takes six hits and delays its lunge late in the fight. Two enemy hits cost one part. Dropped parts become collectible after five seconds. Losing the battery shuts the robot down; Q starts a fresh run.
+
+Defeating the Maker opens the Floodway gate. The route has 32 jumps above water. Falling costs a part; the robot respawns at its checkpoint while the part stays on the last safe landing. Touching the cyan beacon on landing 18 updates the checkpoint. F powers the lift and displays “move to the next level”. Floor 0 ends there.
+
+Planned, not playable yet
+Additional levels above the lift, and a transition from Floor 0 into the next level. Their layouts and encounters are not yet specified. Keep new milestones here as they become playable.
+
+Project layout
+opening/ contains the menu, cinematic, Maker encounter, Floodway, lift, and checkpoints. movement/ contains the shared robot controller, sprites, and damage stages. hud/ contains the integrity display. The Web export preset builds the browser version.
+
+2026-11-22 — Title hold: native 240×135 metal wordmark with moss and rust, exported from the editable Aseprite title. The existing Space prompt and gameplay handoff are unchanged.
+
+2026-11-22 — Burnt generator artwork: opening/cinematic/burnt_unit.png. Verified Godot import and opening scene startup.

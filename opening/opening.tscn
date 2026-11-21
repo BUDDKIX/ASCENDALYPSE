@@ -1,0 +1,245 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://opening/cinematic/ascendalypse_title.png" id="final_title"]
+[ext_resource type="Texture2D" path="res://opening/cinematic/space_to_play.png" id="playprompt"]
+[ext_resource type="Texture2D" path="res://opening/cinematic/burnt_unit.png" id="wreck"]
+[ext_resource type="Texture2D" path="res://opening/cinematic/overcharge.png" id="film"]
+[ext_resource type="PackedScene" path="res://movement/robot.tscn" id="bot"]
+
+[ext_resource type="Script" path="res://opening/opening.gd" id="script"]
+[ext_resource type="Texture2D" path="res://opening/bay.png" id="bay"]
+
+[ext_resource type="Texture2D" path="res://opening/generator_on.png" id="generator"]
+
+[ext_resource type="PackedScene" path="res://opening/encounter.tscn" id="fight"]
+[ext_resource type="PackedScene" path="res://hud/integrity.tscn" id="hud"]
+
+[ext_resource type="PackedScene" path="res://opening/floodway/floodway.tscn" id="route"]
+
+[sub_resource type="RectangleShape2D" id="Floor"]
+size = Vector2(260, 20)
+
+[sub_resource type="RectangleShape2D" id="Platform"]
+size = Vector2(34, 5)
+
+[sub_resource type="RectangleShape2D" id="LeftWall"]
+size = Vector2(16, 512)
+
+[sub_resource type="RectangleShape2D" id="RightWall"]
+size = Vector2(16, 512)
+
+[node name="Opening" type="Node2D"]
+texture_filter = 1
+script = ExtResource("script")
+
+[node name="Bay" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("bay")
+region_enabled = true
+region_rect = Rect2(0, 0, 300, 272)
+
+[node name="GeneratorOn" type="Sprite2D" parent="."]
+centered = false
+visible = false
+texture = ExtResource("generator")
+
+[node name="Cable" type="Line2D" parent="."]
+points = PackedVector2Array(71,197, 78,203, 83,214, 94,218, 102,216, 108,209)
+width = 2.0
+default_color = Color(0.12, 0.1, 0.095, 1)
+
+[node name="Pulse" type="Line2D" parent="."]
+visible = false
+width = 1.0
+default_color = Color(0.33, 0.98, 1, 1)
+
+[node name="Robot" parent="." instance=ExtResource("bot")]
+process_mode = 4
+position = Vector2(111, 210)
+
+[node name="BayCamera" type="Camera2D" parent="."]
+position = Vector2(134, 174.5)
+
+[node name="Letterbox" type="Node2D" parent="."]
+z_index = 5
+
+[node name="Top" type="ColorRect" parent="Letterbox"]
+offset_left = -10000.0
+offset_top = -10000.0
+offset_right = 10000.0
+offset_bottom = 125.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bottom" type="ColorRect" parent="Letterbox"]
+offset_left = -10000.0
+offset_top = 224.0
+offset_right = 10000.0
+offset_bottom = 10000.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Left" type="ColorRect" parent="Letterbox"]
+offset_left = -10000.0
+offset_top = 125.0
+offset_right = 0.0
+offset_bottom = 224.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Right" type="ColorRect" parent="Letterbox"]
+offset_left = 268.0
+offset_top = 125.0
+offset_right = 10000.0
+offset_bottom = 224.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Node2D" parent="."]
+position = Vector2(111, 181)
+scale = Vector2(0.25, 0.25)
+z_index = 4
+
+[node name="Play" type="Button" parent="Menu"]
+offset_left = -60.0
+offset_top = -40.0
+offset_right = 60.0
+offset_bottom = -4.0
+text = "Play"
+
+[node name="Settings" type="Button" parent="Menu"]
+offset_left = -101.0
+offset_top = 0.0
+offset_right = -2.0
+offset_bottom = 32.0
+text = "Settings"
+
+[node name="Credits" type="Button" parent="Menu"]
+offset_left = 2.0
+offset_top = 0.0
+offset_right = 101.0
+offset_bottom = 32.0
+text = "Credits"
+
+[node name="SettingsPanel" type="Panel" parent="Menu"]
+offset_left = -120.0
+offset_top = -115.0
+offset_right = 120.0
+offset_bottom = 50.0
+visible = false
+
+[node name="Heading" type="Label" parent="Menu/SettingsPanel"]
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 228.0
+offset_bottom = 40.0
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="Menu/SettingsPanel"]
+offset_left = 68.0
+offset_top = 112.0
+offset_right = 172.0
+offset_bottom = 146.0
+text = "Back"
+
+[node name="Fullscreen" type="CheckButton" parent="Menu/SettingsPanel"]
+offset_left = 18.0
+offset_top = 52.0
+offset_right = 222.0
+offset_bottom = 88.0
+text = "Fullscreen"
+
+[node name="CreditsPanel" type="Panel" parent="Menu"]
+offset_left = -120.0
+offset_top = -115.0
+offset_right = 120.0
+offset_bottom = 50.0
+visible = false
+
+[node name="Heading" type="Label" parent="Menu/CreditsPanel"]
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 228.0
+offset_bottom = 40.0
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="Menu/CreditsPanel"]
+offset_left = 68.0
+offset_top = 112.0
+offset_right = 172.0
+offset_bottom = 146.0
+text = "Back"
+
+[node name="Project" type="Label" parent="Menu/CreditsPanel"]
+offset_left = 10.0
+offset_top = 48.0
+offset_right = 230.0
+offset_bottom = 96.0
+text = "ASCENDALYPSE"
+horizontal_alignment = 1
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(130, 232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("Floor")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(243, 198.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("Platform")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("LeftWall")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(268, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("RightWall")
+
+[node name="Encounter" parent="." instance=ExtResource("fight")]
+
+[node name="Floodway" parent="." instance=ExtResource("route")]
+
+[node name="Integrity" parent="." instance=ExtResource("hud")]
+visible = false
+
+[node name="Prologue" type="CanvasLayer" parent="."]
+layer = 50
+visible = false
+
+[node name="Black" type="ColorRect" parent="Prologue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0,0,0,1)
+mouse_filter = 2
+
+[node name="Screen" type="Sprite2D" parent="Prologue"]
+texture_filter = 1
+texture = ExtResource("film")
+hframes = 16
+vframes = 18
+
+[node name="TitleCard" type="Sprite2D" parent="Prologue"]
+texture_filter = 1
+visible = false
+texture = ExtResource("final_title")
+
+[node name="TitlePrompt" type="Sprite2D" parent="Prologue"]
+visible = false
+texture_filter = 1
+texture = ExtResource("playprompt")
+
+[node name="BurnedUnit" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(18,136)
+centered = false
+texture_filter = 1
+texture = ExtResource("wreck")
