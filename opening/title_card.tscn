@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://opening/title_card.gd" id="script"]
+[ext_resource type="Texture2D" path="res://opening/cinematic/ascendalypse_title.png" id="title"]
+[ext_resource type="Texture2D" path="res://opening/cinematic/space_to_play.png" id="prompt"]
+[ext_resource type="AudioStream" path="res://audio/gameplay_music.wav" id="music"]
+
+[node name="TitleCardScene" type="CanvasLayer"]
+layer = 51
+script = ExtResource("script")
+
+[node name="Black" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Wordmark" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("title")
+
+[node name="Prompt" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("prompt")
+
+[node name="GameplayMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("music")

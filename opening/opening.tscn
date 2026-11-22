@@ -1,7 +1,5 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" path="res://opening/cinematic/ascendalypse_title.png" id="final_title"]
-[ext_resource type="Texture2D" path="res://opening/cinematic/space_to_play.png" id="playprompt"]
 [ext_resource type="Texture2D" path="res://opening/cinematic/burnt_unit.png" id="wreck"]
 [ext_resource type="Texture2D" path="res://opening/cinematic/overcharge.png" id="film"]
 [ext_resource type="PackedScene" path="res://movement/robot.tscn" id="bot"]
@@ -15,6 +13,10 @@
 [ext_resource type="PackedScene" path="res://hud/integrity.tscn" id="hud"]
 
 [ext_resource type="PackedScene" path="res://opening/floodway/floodway.tscn" id="route"]
+
+[ext_resource type="AudioStream" path="res://audio/reference_score.wav" id="reference_score"]
+[ext_resource type="PackedScene" path="res://opening/game_over.tscn" id="game_over"]
+
 
 [sub_resource type="RectangleShape2D" id="Floor"]
 size = Vector2(260, 20)
@@ -211,6 +213,12 @@ shape = SubResource("RightWall")
 [node name="Integrity" parent="." instance=ExtResource("hud")]
 visible = false
 
+[node name="GameOver" parent="." instance=ExtResource("game_over")]
+
+[node name="ReferenceScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("reference_score")
+
+
 [node name="Prologue" type="CanvasLayer" parent="."]
 layer = 50
 visible = false
@@ -227,15 +235,6 @@ texture = ExtResource("film")
 hframes = 16
 vframes = 18
 
-[node name="TitleCard" type="Sprite2D" parent="Prologue"]
-texture_filter = 1
-visible = false
-texture = ExtResource("final_title")
-
-[node name="TitlePrompt" type="Sprite2D" parent="Prologue"]
-visible = false
-texture_filter = 1
-texture = ExtResource("playprompt")
 
 [node name="BurnedUnit" type="Sprite2D" parent="."]
 visible = false

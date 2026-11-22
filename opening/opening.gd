@@ -1,8 +1,11 @@
 extends Node2D
 
 const CROP := Rect2(0, 125, 268, 99)
+const TITLE_CARD_SCENE := preload("res://opening/title_card.tscn")
 @onready var robot: CharacterBody2D = $Robot
 @onready var camera: Camera2D = $BayCamera
+@onready var game_over: Node = $GameOver
+var title_scene: Node
 
 func _ready() -> void:
 	$Robot/Camera2D.enabled = false
@@ -16,6 +19,16 @@ func _ready() -> void:
 	for panel in [$Menu/SettingsPanel, $Menu/CreditsPanel]:
 		panel.get_node("Back").pressed.connect(show_panel.bind(null))
 	$Menu/SettingsPanel/Fullscreen.toggled.connect(set_fullscreen)
+	robot.connect("game_over_requested", _on_robot_game_over)
+	game_over.connect("respawn_requested", _on_game_over_respawn_requested)
+
+func _on_robot_game_over() -> void:
+	get_tree().paused = true
+	game_over.call("present")
+
+func _on_game_over_respawn_requested() -> void:
+	get_tree().paused = false
+	get_tree().call_deferred("reload_current_scene")
 
 func fit_camera() -> void:
 	var ratio := get_viewport_rect().size / CROP.size
@@ -24,10 +37,7 @@ func fit_camera() -> void:
 	$Prologue/Screen.position = (viewport_size * 0.5).round()
 	var scale_fit := viewport_size / Vector2(240,135)
 	$Prologue/Screen.scale = Vector2.ONE * minf(scale_fit.x,scale_fit.y)
-	$Prologue/TitleCard.scale = $Prologue/Screen.scale
-	$Prologue/TitleCard.position = $Prologue/Screen.position
-	$Prologue/TitlePrompt.scale = $Prologue/Screen.scale
-	$Prologue/TitlePrompt.position = ($Prologue/Screen.position + Vector2(0, 20 * $Prologue/Screen.scale.y)).round()
+
 
 func show_panel(panel: Control) -> void:
 	for child in $Menu.get_children():
@@ -48,22 +58,38 @@ var film_time := 0.0
 var film_frame := 0
 var pull_count := 0
 var held_triggers := 0.0
-var title_armed := false
+
 
 func start() -> void:
 	if not $Menu.visible: return
 	$Menu.hide()
+	$ReferenceScore.play()
 	$Prologue.show()
 	set_shot(0)
 
 func set_shot(n: int) -> void:
 	film_frame = n
 	$Prologue/Screen.frame = n
-	$Prologue/TitlePrompt.visible = n == 264
-	$Prologue/TitleCard.visible = n == 264
-	if n == 264: title_armed = false
+	if n == 264:
+		start_title_scene()
 	if n == 248:
 		for pad in Input.get_connected_joypads(): Input.start_joy_vibration(pad,0.7,1.0,0.4)
+
+func start_title_scene() -> void:
+	$ReferenceScore.stop()
+	$GeneratorOn.hide()
+	$BurnedUnit.show()
+	$Robot/Sprite2D.texture = robot.intact_pose
+	$Pulse.hide()
+	$Cable.points = PackedVector2Array([Vector2(71,197),Vector2(78,203),Vector2(82,210),Vector2(88,211),Vector2(94,205),Vector2(97,202)])
+	$Prologue.hide()
+	title_scene = TITLE_CARD_SCENE.instantiate()
+	add_child(title_scene)
+	title_scene.connect("play_requested", _on_title_play_requested)
+
+func _on_title_play_requested() -> void:
+	title_scene.call("dismiss")
+	unlock()
 
 func _physics_process(dt: float) -> void:
 	if not $Prologue.visible: return
@@ -76,12 +102,6 @@ func _physics_process(dt: float) -> void:
 		if pull_count >= 8 or held_triggers >= 1.25: set_shot(242)
 		else: set_shot(222 + maxi(pull_count*2,mini(19,int(held_triggers*15))))
 		film_time = 0
-		return
-	if film_frame == 264:
-		if not Input.is_action_pressed("jump"): title_armed = true
-		if title_armed and Input.is_action_just_pressed("jump"):
-			set_shot(265)
-			film_time = 0
 		return
 	film_time += dt * 1000.0
 	while film_time >= FRAME_MS[film_frame]:

@@ -7,8 +7,8 @@ Two hundred years after humanity vanished, lightning strikes the antenna on Floo
 ## Inside the demo
 
 1. **The Spark.** Watch the surge reach the generator. When the red bar shakes, tap Space eight times or hold both controller triggers (L2 + R2) to pull the cable free. After the explosion, wait for the title and press Space again to play.
-2. **The Directive & the Mutation.** Inspect the Maker at his workbench. His first lunge gives you a reason to break the Unit’s oldest rule. Land six crescent strikes to open the gate. Two enemy hits knock a part loose; wait out the five-second countdown before picking it up.
-3. **The Floodway.** Cross 32 jumps above the water. Touch the cyan beacon on landing 18 to set your checkpoint. If you fall, the Unit returns to the checkpoint, but the missing part stays on the last safe landing. Powering up the lift ends the demo.
+2. **The Directive & the Mutation.** Press F at the Maker’s remains to scan. Dialogue appears in a fixed bottom-of-screen panel with the robot’s face on the left; Space advances the “Master...?” line. The remains then transform into the Nature Monster, currently using the existing Maker animation frames. Its first hit pauses combat for four one-at-a-time internal-conflict lines; its next hit pauses for “I must... BOUNCE BACK!” Defeat the monster (eight crescent strikes) to hear the farewell and open the gate. Two enemy hits still knock a part loose; wait out the five-second countdown before picking it up. Jump, attack, enemy-death, robot-damage and game-over SFX are assigned; scan, monster-vocal and mutation-impact hooks remain empty. Landed attack hits and robot damage rumble a connected controller.
+3. **The Floodway.** Cross 32 jumps above the water. Touch the cyan beacon on landing 18 to set your checkpoint; a small white CHECKPOINT label floats above its light. If you fall, the Unit returns to the checkpoint, but the missing part stays on the last safe landing. Powering up the lift ends the demo.
 
 ## BOUNCE BACK
 
@@ -24,14 +24,14 @@ The jam theme is **BOUNCE BACK**. The Unit comes back to life after two centurie
 
 | Input | Action |
 | --- | --- |
-| Left / Right | Walk and steer in the air |
-| Hold Space, then release | Charge and spring-jump |
-| R | Cancel a charge |
+| Left / Right or left stick | Walk and steer in the air |
+| Hold Space or controller X, then release | Charge and spring-jump |
+| R or controller L2 | Cancel a charge |
 | F | Inspect the Maker or activate the lift |
-| Space | Continue from the title or dismiss dialogue |
-| X | Crescent attack; allow half a second between strikes |
+| Space | Continue from the title or advance dialogue one line |
+| Keyboard X or controller R2 | Crescent attack at any time during active gameplay; 0.5-second cooldown |
 | E | Return to the active checkpoint |
-| Q after battery loss | Start a fresh run |
+| Space or controller X at Game Over (Q also works) | Start a fresh run after five part losses |
 
 ## Beyond the demo: story roadmap (spoilers)
 
@@ -42,6 +42,10 @@ The jam theme is **BOUNCE BACK**. The Unit comes back to life after two centurie
 ## Art and sound direction
 
 Floor 0 uses wet concrete, rust and deep moss greens so the Unit’s eyes, lightning and checkpoint light stand out. For the ascent, the proposed art plan groups the tower into three zones: flooded basement and lobby (0–3), overgrown offices (4–7), and storm-battered penthouse and terrace (8–10). More daylight would reach each successive zone. Sound and haptic targets include a rising generator hum, trigger rumble and a cut to silence at detonation, with small mechanical whirs and synth chirps in place of voiced dialogue. These are production targets, not promised features of this build.
+
+## Music test
+
+The reference score starts with Play and continues through the explosion and blank transition. At the title cut, a separate `opening/title_card.tscn` scene starts `audio/gameplay_music.wav` and displays the title and Space prompt together. Space hides the title layer and unlocks gameplay while the track continues looping.
 
 ## Run from source
 

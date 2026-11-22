@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal parts_changed
+signal game_over_requested
 
 const WALK_SHEET := preload("res://movement/robot_walk.png")
 var walk_clock := 0.0
@@ -14,10 +15,20 @@ var charging := false
 var held := 0.0
 
 const CHARGE_POSE := preload("res://movement/robot_charge.png")
+const HIT_RUMBLE_WEAK := 0.35
+const HIT_RUMBLE_STRONG := 0.72
+const HIT_RUMBLE_DURATION := 0.14
+const DAMAGE_RUMBLE_WEAK := 0.62
+const DAMAGE_RUMBLE_STRONG := 1.0
+const DAMAGE_RUMBLE_DURATION := 0.28
+const ENEMY_DEATH_RUMBLE_WEAK := 0.48
+const ENEMY_DEATH_RUMBLE_STRONG := 0.9
+const ENEMY_DEATH_RUMBLE_DURATION := 0.22
 @onready var normal_pose: Texture2D = $Sprite2D.texture
 @onready var spawn_position := global_position
 
 @onready var intact_pose: Texture2D = $Sprite2D.texture
+@onready var jump_sfx: AudioStreamPlayer = $JumpSFX
 var missing: Array[int] = []
 var parts_lost: int:
 	get: return missing.size()
@@ -50,14 +61,33 @@ func recover_part(id: int) -> bool:
 	refresh_stage()
 	return true
 
-func lose_part() -> void:
+func lose_part(play_feedback: bool = true) -> void:
 	var id := next_part()
 	if id < 0: return
+	if play_feedback:
+		play_damage_feedback()
 	missing.append(id)
 	refresh_stage()
 	reset_to_spawn()
 	if parts_lost == 5:
 		$Sprite2D.modulate = Color(0.42, 0.42, 0.42)
+		game_over_requested.emit()
+
+func play_damage_feedback() -> void:
+	var damage_sfx := get_node_or_null("DamageSFX") as AudioStreamPlayer
+	if damage_sfx != null and damage_sfx.stream != null:
+		damage_sfx.play()
+	_rumble_controllers(DAMAGE_RUMBLE_WEAK, DAMAGE_RUMBLE_STRONG, DAMAGE_RUMBLE_DURATION)
+
+func rumble_on_hit() -> void:
+	_rumble_controllers(HIT_RUMBLE_WEAK, HIT_RUMBLE_STRONG, HIT_RUMBLE_DURATION)
+
+func rumble_on_enemy_death() -> void:
+	_rumble_controllers(ENEMY_DEATH_RUMBLE_WEAK, ENEMY_DEATH_RUMBLE_STRONG, ENEMY_DEATH_RUMBLE_DURATION)
+
+func _rumble_controllers(weak: float, strong: float, duration: float) -> void:
+	for pad in Input.get_connected_joypads():
+		Input.start_joy_vibration(pad, weak, strong, duration)
 
 func reset_to_spawn() -> void:
 	global_position = spawn_position
@@ -95,6 +125,8 @@ func _physics_process(delta: float) -> void:
 			else:
 				var power := held / maxf(charge_time, 0.001)
 				velocity = Vector2(aim * lerpf(45, 125, power), -lerpf(95, 275, power))
+				if jump_sfx.stream != null:
+					jump_sfx.play()
 				charging = false
 	else:
 		var steer := Input.get_axis("move_left", "move_right")

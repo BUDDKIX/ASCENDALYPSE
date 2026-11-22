@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://movement/robot.gd" id="1"]
 [ext_resource type="Texture2D" path="res://movement/robot.png" id="2"]
+[ext_resource type="AudioStream" path="res://audio/robot_damage.wav" id="damage_sfx"]
+[ext_resource type="AudioStream" path="res://audio/jump_sfx.wav" id="jump_sfx"]
 
 [sub_resource type="RectangleShape2D" id="Body"]
 size = Vector2(12, 24)
@@ -26,4 +28,12 @@ mouse_filter = 2
 color = Color(0.20, 0.95, 1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 8)
 zoom = Vector2(4, 4)
+
+[node name="DamageSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("damage_sfx")
+process_mode = 3
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("jump_sfx")
